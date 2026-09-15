@@ -1,56 +1,71 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
 
 export const FlipLinksSection = () => {
   return (
-    <section className="grid place-content-center gap-2 bg-background w-full h-screen text-black dark:text-white pb-32 pt-20">
-      <FlipLink href="https://github.com/VighneshReddyy">Github</FlipLink>
-      <FlipLink href="https://linkedin.com/in/vighnesh-reddy-satti-402172321">LinkedIn</FlipLink>
-      <FlipLink href="mailto:vighneshreddysatti@gmail.com">Email</FlipLink>
-      <FlipLink href="tel:+919121656560">Phone</FlipLink>
-      <FlipLink href="https://instagram.com/">Instagram</FlipLink>
+    <section className="grid place-content-center gap-2 bg-background px-8 py-24 text-foreground">
+      <FlipLink href="https://github.com/dheerajeshwar32">GITHUB</FlipLink>
+      <FlipLink href="https://www.linkedin.com/in/nagula-dheeraj-eshwar-b297a2320/">LINKEDIN</FlipLink>
+      <FlipLink href="mailto:dheerajeshwarnagula@gmail.com">EMAIL</FlipLink>
+      <FlipLink href="tel:+918688921945">PHONE</FlipLink>
+      <FlipLink href="https://instagram.com/dheeraj_eshwar32">INSTAGRAM</FlipLink>
     </section>
   );
 };
 
+const DURATION = 0.25;
+const STAGGER = 0.025;
+
 const FlipLink = ({ children, href }: { children: string; href: string }) => {
   return (
-    <a
+    <motion.a
+      initial="initial"
+      whileHover="hovered"
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group text-primary relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-6xl md:text-7xl lg:text-8xl"
-      style={{
-        lineHeight: 0.85,
-      }}
+      className="relative block overflow-hidden whitespace-nowrap text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter"
+      style={{ lineHeight: 0.85 }}
     >
-      <div className="flex">
-        {children.split("").map((letter, i) => (
-          <span
-            key={i}
-            className="inline-block transition-transform duration-300 ease-in-out group-hover:-translate-y-[110%]"
-            style={{
-              transitionDelay: `${i * 25}ms`,
+      <div>
+        {children.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: { y: 0 },
+              hovered: { y: "-100%" },
             }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+            key={i}
           >
-            {letter}
-          </span>
+            {l}
+          </motion.span>
         ))}
       </div>
-      <div className="absolute inset-0 flex">
-        {children.split("").map((letter, i) => (
-          <span
-            key={i}
-            className="inline-block translate-y-[110%] transition-transform duration-300 ease-in-out group-hover:translate-y-0"
-            style={{
-              transitionDelay: `${i * 25}ms`,
+      <div className="absolute inset-0">
+        {children.split("").map((l, i) => (
+          <motion.span
+            variants={{
+              initial: { y: "100%" },
+              hovered: { y: 0 },
             }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+            key={i}
           >
-            {letter}
-          </span>
+            {l}
+          </motion.span>
         ))}
       </div>
-    </a>
+    </motion.a>
   );
 };
-
-export { FlipLink };

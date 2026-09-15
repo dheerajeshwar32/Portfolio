@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vighnesh Reddy Satti — Portfolio",
+  title: "NDEP — Portfolio",
   description:
-    "AI & Robotics Engineer | B.Tech IT @ Manipal | ROS2, Deep Learning, Autonomous Navigation",
+    "Software Engineer | B.Tech CSE (Core) @ VIT Vellore | Web Infrastructure, Edge Computing, Algorithms",
 };
 
 export default function RootLayout({
