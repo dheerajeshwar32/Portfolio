@@ -279,9 +279,9 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-screen flex items-center px-6 pt-28 pb-20"
       >
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none opacity-50 dark:opacity-30" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none opacity-50 dark:opacity-20" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 dark:bg-[radial-gradient(ellipse_70%_60%_at_40%_50%,rgba(0,0,0,0.45)_0%,transparent_100%)]" />
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-500/20 blur-[120px] rounded-full pointer-events-none opacity-0 dark:opacity-30 transition-opacity duration-700" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none opacity-0 dark:opacity-20 transition-opacity duration-700" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-100 bg-[radial-gradient(ellipse_70%_60%_at_40%_50%,rgba(0,0,0,0.45)_0%,transparent_100%)] transition-opacity duration-700" />
 
         <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-16 md:pl-16">
           
@@ -292,7 +292,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-                className="inline-block"
+                className="inline-block text-foreground"
               >
                 Nagula Dheeraj
               </motion.span>
@@ -300,7 +300,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground/85 to-foreground/55"
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground/80 to-foreground/40"
               >
                 Eshwar Prudhvi
               </motion.span>
@@ -397,7 +397,7 @@ export default function Home() {
               <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-foreground/50 to-foreground/10 opacity-60 blur-md group-hover:opacity-100 transition-opacity duration-700" />
               <div className="absolute -inset-[2px] rounded-full bg-gradient-to-b from-foreground/40 to-transparent" />
 
-              <div className="relative size-40 sm:size-48 md:size-56 rounded-full overflow-hidden border border-background shadow-2xl bg-card">
+              <div className="relative size-40 sm:size-48 md:size-56 rounded-full overflow-hidden border border-border/30 shadow-2xl bg-transparent">
                 {avatarError ? (
                   <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1c1c1c] to-[#2a2a2a] text-[#f8f7f4] text-[3.5rem] font-bold ${spaceGrotesk.className}`}>
                     ND
@@ -798,7 +798,7 @@ function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-foreground pointer-events-none z-[999] mix-blend-difference flex items-center justify-center"
+      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-blue-500/50 backdrop-blur-md border border-blue-400/50 pointer-events-none z-[999] flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
@@ -807,7 +807,7 @@ function CustomCursor() {
     >
       <motion.div
         animate={{ opacity: isHovering ? 1 : 0 }}
-        className="text-[3px] font-black text-background mix-blend-normal"
+        className="text-[3px] font-black text-white mix-blend-normal"
       >
         CLICK
       </motion.div>

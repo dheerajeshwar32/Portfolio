@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
+/* LIGHT MODE: Glacier Silver & Ocean (ZERO BLACK) */
 :root {
-  --background: #f8f7f4;
-  --foreground: #0a0a0a;
-  --card: #ffffff;
-  --card-foreground: #0a0a0a;
-  --primary: #0a0a0a;
-  --primary-foreground: #f8f7f4;
-  --secondary: #f1f0ed;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f1f0ed;
-  --muted-foreground: #6b7280;
-  --accent: #f1f0ed;
-  --accent-foreground: #0a0a0a;
+  --background: #f8fafc; 
+  --foreground: #172554; 
+  --card: #ffffff; 
+  --card-foreground: #172554;
+  --primary: #2563eb; 
+  --primary-foreground: #ffffff;
+  --secondary: #e0e7ff; 
+  --secondary-foreground: #1e3a8a;
+  --muted: #f1f5f9;
+  --muted-foreground: #334155; /* Rich, dark slate for crisp readability */
+  --accent: #e0e7ff;
+  --accent-foreground: #1e3a8a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e5e4e0;
-  --ring: #0a0a0a;
+  --border: #bfdbfe; 
+  --ring: #3b82f6;
 }
 
 @theme inline {
@@ -38,23 +39,24 @@
   --color-ring: var(--ring);
 }
 
+/* DARK MODE: Cosmic Midnight Navy */
 .dark {
-  --background: #0a0a0a;
-  --foreground: #f8f7f4;
-  --card: #141414;
-  --card-foreground: #f8f7f4;
-  --primary: #f8f7f4;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1c1c1c;
-  --secondary-foreground: #f8f7f4;
-  --muted: #1c1c1c;
-  --muted-foreground: #9ca3af;
-  --accent: #1c1c1c;
-  --accent-foreground: #f8f7f4;
+  --background: #090e1a;
+  --foreground: #f8f9fa;
+  --card: #0d1323;
+  --card-foreground: #f8f9fa;
+  --primary: #f8f9fa;
+  --primary-foreground: #090e1a;
+  --secondary: #1d2739;
+  --secondary-foreground: #f8f9fa;
+  --muted: #1d2739;
+  --muted-foreground: #94a3b8;
+  --accent: #1d2739;
+  --accent-foreground: #f8f9fa;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #2a2a2a;
-  --ring: #f8f7f4;
+  --border: #1d2739;
+  --ring: #94a3b8;
 }
 
 * {
