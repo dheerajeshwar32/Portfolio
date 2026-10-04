@@ -13,17 +13,10 @@ import {
 } from "motion/react";
 import { Space_Grotesk } from "next/font/google";
 import { DottedSurface } from "@/components/ui/dotted-surface";
-import { FadeIn, SectionLabel, MagneticButton, SpotlightWrapper, CustomCursor } from "@/components/ui/helpers";
 import { MagicText } from "@/components/ui/magic-text";
 import { FlipLinksSection } from "@/components/ui/flip-links";
 import { Tabs } from "@/components/ui/vercel-tabs";
 import { ArticleCard } from "@/components/ui/blog-post-card";
-import { AboutSection } from "@/components/sections/about-section";
-import { ExperienceSection } from "@/components/sections/experience-section";
-import { ProjectsSection } from "@/components/sections/projects-section";
-import { SkillsSection } from "@/components/sections/skills-section";
-import { EducationSection } from "@/components/sections/education-section";
-import { ContactSection } from "@/components/sections/contact-section";
 import { useTheme } from "next-themes";
 import { Code2, Mail, ExternalLink, Moon, Sun, Link2, Menu, X, FileText } from "lucide-react";
 
@@ -445,12 +438,215 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
+      {/* ─── ABOUT ─── */}
+      <section id="about" className="relative py-32 px-6 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn><SectionLabel>About</SectionLabel></FadeIn>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <FadeIn delay={0.1}>
+              <MagicText text="Bridging core computer science with modern web architecture to build fast, scalable, and intelligent applications." />
+            </FadeIn>
+            <FadeIn delay={0.25} className="space-y-5 text-muted-foreground leading-relaxed">
+              <p>
+                I&apos;m a <strong className="text-foreground">B.Tech Computer Science &amp; Engineering (Core)</strong>{" "}
+                student at <strong className="text-foreground">VIT Vellore</strong>, expecting to graduate in 2028.
+              </p>
+              <p>
+                I thrive on translating a strong foundation in Data Structures, Algorithms, OS, and DBMS into real-world code. Beyond algorithms, I continuously explore modern web technologies—from React and WebAssembly to hardware integration and GenAI—to build highly functional, full-stack platforms like{" "}
+                <strong className="text-foreground">PerfectByte</strong> and <strong className="text-foreground">healthOS</strong>.
+              </p>
+              <div className="flex gap-4 pt-2">
+                <a
+                  href="mailto:dheerajeshwarnagula@gmail.com"
+                  className="flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-70 transition-opacity relative z-20"
+                >
+                  <Mail size={14} /> dheerajeshwarnagula@gmail.com
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── EXPERIENCE ─── */}
+      <section id="experience" className="relative py-32 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn><SectionLabel>Experience</SectionLabel></FadeIn>
+          <FadeIn delay={0.1}><h2 className={`text-3xl sm:text-4xl font-bold mb-16 ${spaceGrotesk.className}`}>Where I&apos;ve been building</h2></FadeIn>
+
+          <div className="relative">
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
+            <div className="space-y-12 pl-12">
+              {experience.map((exp, i) => (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div className="relative group">
+                    <div
+                      className="absolute -left-[2.35rem] top-1.5 size-3 rounded-full border-2 border-background transition-transform group-hover:scale-125"
+                      style={{ background: exp.accent }}
+                    />
+                    <div className="bg-card/60 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-foreground/20 transition-colors duration-300">
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
+                        <div>
+                          <h3 className="font-semibold text-lg">{exp.role}</h3>
+                          <p className="text-muted-foreground text-sm">{exp.org} · {exp.location}</p>
+                        </div>
+                        <span
+                          className="text-xs font-mono px-3 py-1 rounded-full border"
+                          style={{ borderColor: exp.accent + "44", color: exp.accent }}
+                        >
+                          {exp.period}
+                        </span>
+                      </div>
+                      <ul className="space-y-2">
+                        {exp.points.map((point, j) => (
+                          <li key={j} className="text-sm text-muted-foreground flex gap-2">
+                            <span className="text-foreground/40 mt-1 shrink-0">›</span>
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PROJECTS ─── */}
+      <section id="projects" className="relative py-32 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn><SectionLabel>Projects</SectionLabel></FadeIn>
+          
+          {/* Featured Projects */}
+          <FadeIn delay={0.1}><h2 className={`text-2xl sm:text-3xl font-bold mb-10 ${spaceGrotesk.className}`}>Featured Work</h2></FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20 mb-20">
+            {featuredProjects.map((project, i) => (
+              <FadeIn key={i} delay={i * 0.08} className="w-full">
+                <SpotlightWrapper>
+                  <ArticleCard {...project} />
+                </SpotlightWrapper>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Other Projects */}
+          <FadeIn delay={0.1}><h2 className={`text-2xl sm:text-3xl font-bold mb-10 text-muted-foreground ${spaceGrotesk.className}`}>Other Explorations</h2></FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20">
+            {otherProjects.map((project, i) => (
+              <FadeIn key={i} delay={i * 0.08} className="w-full opacity-90 hover:opacity-100 transition-opacity">
+                <SpotlightWrapper>
+                  <ArticleCard {...project} />
+                </SpotlightWrapper>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SKILLS ─── */}
+      <section id="skills" className="relative py-32 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn><SectionLabel>Skills</SectionLabel></FadeIn>
+          <FadeIn delay={0.1}><h2 className={`text-3xl sm:text-4xl font-bold mb-16 ${spaceGrotesk.className}`}>My technical toolkit</h2></FadeIn>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {Object.entries(skills).map(([category, items], ci) => (
+              <FadeIn key={category} delay={ci * 0.1}>
+                <h3 className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-4">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill, si) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 rounded-full text-sm border border-border bg-card/60 text-foreground/80 hover:border-foreground/40 hover:text-foreground transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── EDUCATION & CERTIFICATIONS ─── */}
+      <section className="relative py-32 px-6 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn><SectionLabel>Education</SectionLabel></FadeIn>
+          <FadeIn delay={0.1}><h2 className={`text-3xl sm:text-4xl font-bold mb-16 ${spaceGrotesk.className}`}>Academic journey</h2></FadeIn>
+          <div className="space-y-4">
+            {[
+              { school: "Vellore Institute of Technology (VIT)", degree: "B.Tech in Computer Science & Engineering (Core)", grade: "8.88 CGPA", period: "2024 - 2028", location: "Vellore, India", isPursuing: true },
+              { school: "Sri Chaitanya Junior College", degree: "Intermediate (MPC)", grade: "94.6%", period: "Jun 2022 - May 2024", location: "Andhra Pradesh, India" },
+              { school: "Aditya Talent School", degree: "Class X", grade: "93.33%", period: "May 2019 - Apr 2021", location: "Andhra Pradesh, India" },
+            ].map((edu, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-card/60 border border-border hover:border-foreground/20 transition-colors">
+                  <div>
+                    <h3 className="font-semibold">{edu.school}</h3>
+                    <p className="text-sm text-muted-foreground">{edu.degree} · {edu.location}</p>
+                  </div>
+                  <div className="text-right flex flex-col items-end">
+                    {edu.isPursuing && (
+                      <span className="flex items-center gap-1.5 text-green-500 font-medium text-xs mb-1 uppercase tracking-wider">
+                        <span className="size-1.5 rounded-full bg-green-500 animate-pulse" /> Pursuing
+                      </span>
+                    )}
+                    <span className="font-semibold text-lg leading-none">{edu.grade}</span>
+                    <span className="text-xs text-muted-foreground font-mono block mt-1.5">{edu.period}</span>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <div className="mt-24">
+            <FadeIn delay={0.2}>
+              <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${spaceGrotesk.className}`}>📜 Licenses & Certifications</h3>
+              <div className="grid sm:grid-cols-2 gap-4 relative z-20">
+                {certifications.map((cert, i) => (
+                  <SpotlightWrapper key={i}>
+                    {cert.url === "#" ? (
+                      // Render as non-link div if verification is pending/missing URL
+                      <div className="flex flex-col gap-2 p-5 rounded-2xl bg-card/60 border border-border transition-colors w-full h-full cursor-default">
+                        <div className="flex justify-between items-start">
+                          <span className="text-foreground/40 font-mono text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                          <span className="text-[10px] bg-secondary/80 text-muted-foreground px-2 py-0.5 rounded-full">Pending Link</span>
+                        </div>
+                        <span className="font-medium text-foreground">{cert.title}</span>
+                        <span className="text-sm text-muted-foreground">{cert.org}</span>
+                        <span className="text-xs text-muted-foreground/60 font-mono">{cert.id}</span>
+                      </div>
+                    ) : (
+                      // Render as clickable link if URL exists
+                      <a href={cert.url} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-2 p-5 rounded-2xl bg-card/60 border border-border transition-colors w-full h-full group">
+                        <div className="flex justify-between items-start">
+                          <span className="text-foreground/40 font-mono text-sm shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                          <ExternalLink size={14} className="text-muted-foreground group-hover:text-foreground transition-colors" />
+                        </div>
+                        <span className="font-medium text-foreground">{cert.title}</span>
+                        <span className="text-sm text-muted-foreground">{cert.org}</span>
+                        <span className="text-xs text-muted-foreground/60 font-mono">{cert.id}</span>
+                      </a>
+                    )}
+                  </SpotlightWrapper>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CONTACT ─── */}
+      <section id="contact" className="relative py-0 bg-background">
+        <div className="max-w-4xl mx-auto px-6 pt-20 pb-6 text-center">
+          <FadeIn><SectionLabel>Contact</SectionLabel></FadeIn>
+        </div>
+        <FlipLinksSection />
+      </section>
 
       {/* ─── FOOTER ─── */}
       <footer className="border-t border-border py-8 px-6 text-center text-xs text-muted-foreground bg-background relative z-20">
@@ -459,4 +655,162 @@ export default function Home() {
     </main>
   );
 }
-
+
+/* ────────────────────────────────────────────────────────────── */
+/* AESTHETIC UPGRADE HELPER COMPONENTS                            */
+/* ────────────────────────────────────────────────────────────── */
+
+function FadeIn({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const shouldReduceMotion = useReducedMotion();
+  
+  return (
+    <motion.div
+      ref={ref}
+      initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.65, delay, ease: [0.25, 0.4, 0.25, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="text-xs font-mono text-muted-foreground uppercase tracking-[0.3em] mb-4">
+      {children}
+    </p>
+  );
+}
+
+// 1. Magnetic Physics Button (Optimized)
+function MagneticButton({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const shouldReduceMotion = useReducedMotion();
+  
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const springX = useSpring(x, springConfig);
+  const springY = useSpring(y, springConfig);
+
+  const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current || shouldReduceMotion) return;
+    const { clientX, clientY } = e;
+    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    x.set(middleX * 0.2);
+    y.set(middleY * 0.2);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      style={shouldReduceMotion ? {} : { x: springX, y: springY }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// 2. Spotlight Hover Card Wrapper (Optimized)
+function SpotlightWrapper({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const opacity = useMotionValue(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (shouldReduceMotion) return;
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    mx.set(e.clientX - rect.left);
+    my.set(e.clientY - rect.top);
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => opacity.set(1)}
+      onMouseLeave={() => opacity.set(0)}
+      className="relative overflow-hidden rounded-2xl group w-full h-full"
+    >
+      {!shouldReduceMotion && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px z-10 transition-opacity duration-300"
+          style={{
+            opacity,
+            background: useMotionTemplate`radial-gradient(600px circle at ${mx}px ${my}px, rgba(255,255,255,.12), transparent 40%)`,
+          }}
+        />
+      )}
+      {children}
+    </div>
+  );
+}
+
+// 3. Ultra-Optimized Custom Physics Cursor
+function CustomCursor() {
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const springConfig = { damping: 28, stiffness: 500, mass: 0.5 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+  const shouldReduceMotion = useReducedMotion();
+  
+  const [isHovering, setIsHovering] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches || shouldReduceMotion) return;
+    setIsVisible(true);
+
+    const updateMousePosition = (e: MouseEvent) => {
+      cursorX.set(e.clientX - 12);
+      cursorY.set(e.clientY - 12);
+      
+      const target = e.target as HTMLElement;
+      const isPointer = !!target.closest('a, button, [role="button"]');
+      setIsHovering(isPointer);
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => window.removeEventListener("mousemove", updateMousePosition);
+  }, [cursorX, cursorY, shouldReduceMotion]);
+
+  if (!isVisible) return null;
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-blue-500/50 backdrop-blur-md border border-blue-400/50 pointer-events-none z-[999] flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+      style={{
+        x: cursorXSpring,
+        y: cursorYSpring,
+        scale: isHovering ? 2.8 : 1,
+      }}
+    >
+      <motion.div
+        animate={{ opacity: isHovering ? 1 : 0 }}
+        className="text-[3px] font-black text-white mix-blend-normal"
+      >
+        CLICK
+      </motion.div>
+    </motion.div>
+  );
+}

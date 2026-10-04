@@ -3,12 +3,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 
 export interface ArticleCardProps {
+  slug?: string;
   headline: string;
   excerpt: string;
   fullDescription?: string;
@@ -20,6 +22,7 @@ export interface ArticleCardProps {
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({
+  slug,
   cover,
   tag,
   githubUrl,
@@ -145,7 +148,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
                 </div>
                 
                 {tools && tools.length > 0 && (
-                  <div>
+                  <div className="mb-8">
                     <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-3">Tools Used</h4>
                     <div className="flex flex-wrap gap-2">
                       {tools.map(tool => (
@@ -154,6 +157,14 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
                         </span>
                       ))}
                     </div>
+                  </div>
+                )}
+                
+                {slug && (
+                  <div className="mt-4 border-t border-border pt-6">
+                    <Link href={`/projects/${slug}`} className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-6 py-2.5 text-sm font-medium transition-transform hover:scale-105">
+                      Read Full Case Study
+                    </Link>
                   </div>
                 )}
               </div>

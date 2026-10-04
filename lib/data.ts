@@ -8,6 +8,7 @@ export const NAV_TABS = [
 
 export const projects = [
   {
+    slug: "perfectbyte",
     headline: "PerfectByte — Local-First File Compression",
     excerpt: "Privacy-first toolkit that compresses images and PDFs to an exact target byte size, entirely on-device.",
     fullDescription: "A privacy-first file utility that compresses images and PDFs down to an exact target byte size using a custom binary-search algorithm, with bulk folder compression powered by a Web Worker pool so the UI never blocks.",
@@ -17,6 +18,7 @@ export const projects = [
     githubUrl: "https://perfectbyte.vercel.app/"
   },
   {
+    slug: "carbonroute",
     headline: "CarbonRoute — Carbon-Aware LLM Router",
     excerpt: "Routes LLM inference requests based on live carbon intensity, latency, and cost SLA weights.",
     fullDescription: "An inference router that decides where to send an LLM request based on live carbon intensity, latency, and cost-priority weights. Targets a sub-200ms latency SLA while balancing cost and carbon-intensity.",
@@ -26,6 +28,7 @@ export const projects = [
     githubUrl: "https://github.com/dheerajeshwar32/CarbonRoute"
   },
   {
+    slug: "kyc-job-skill-matching",
     headline: "KYC — In-Browser Job-Skill Matching",
     excerpt: "Privacy-first job-skill matching PWA with an AI career coach, built for InnoHack 2.0.",
     fullDescription: "Matches candidates to jobs using Transformers.js for in-browser semantic skill-matching via client-side cosine similarity. Validated at 100% top-match domain accuracy. Ships as an offline-capable PWA.",
@@ -35,6 +38,7 @@ export const projects = [
     githubUrl: "https://code-perfect-innohack.vercel.app/"
   },
   {
+    slug: "healthos",
     headline: "healthOS Digital Dashboard",
     excerpt: "Web-based digital healthcare dashboard featuring Web Speech API voice logging and live metrics.",
     fullDescription: "Developed healthOS, a comprehensive web-based digital healthcare dashboard. Integrated Web Speech API for seamless, accessible voice logging and utilized Chart.js for rendering dynamic, real-time data visualizations.",
@@ -44,6 +48,7 @@ export const projects = [
     githubUrl: "https://dheerajeshwar32.github.io/healthOS/"
   },
   {
+    slug: "smart-city-traffic-analytics",
     headline: "Smart City Traffic Analytics (MPMC)",
     excerpt: "Arduino-based hardware prototype for multi-lane adaptive signal control.",
     fullDescription: "Engineered the C++ logic for multi-lane timing, handled circuit wiring, and implemented precise microcontroller hardware timer configurations for synchronous signal switching without thread blocking.",
@@ -53,6 +58,7 @@ export const projects = [
     githubUrl: "https://github.com/dheerajeshwar32"
   },
   {
+    slug: "edge-cloud-inference-scheduler",
     headline: "Edge-Cloud Inference Scheduler",
     excerpt: "Java-based algorithms for collaborative inference scheduling built for the ICPC Challenge.",
     fullDescription: "Iteratively optimized Java solutions for the edge-cloud collaborative scheduling problem during the ICPC Challenge powered by Huawei. Focused on low-latency resource allocation algorithms.",
