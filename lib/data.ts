@@ -40,33 +40,39 @@ export const projects: Project[] = [
     hasCaseStudy: true,
     headline: "PerfectByte — Local-First File Compression",
     excerpt: "Privacy-first toolkit that compresses images and PDFs to an exact target byte size, entirely on-device.",
-    fullDescription: "A privacy-first file utility that compresses images and PDFs down to an exact target byte size using a custom binary-search algorithm, with bulk folder compression powered by a Web Worker pool so the UI never blocks.",
-    tools: ["React", "WebAssembly", "Tailwind CSS", "Web Workers", "Gemini API"],
+    fullDescription: "A privacy-first file utility that compresses images and PDFs down to an exact target byte size using a custom binary-search algorithm. Features an interactive 4× magnifier loupe, Gemini AI conversational command bar, precision size stepper with live decimal byte meters, and bulk folder processing via Web Workers.",
+    tools: ["React", "WebAssembly", "TypeScript", "Tailwind CSS", "Web Workers", "Gemini API"],
     cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
     tag: "Web Architecture",
     githubUrl: "https://github.com/dheerajeshwar32/PerfectByte",
     liveUrl: "https://perfectbyte.vercel.app",
     caseStudy: {
-      challenge: "Users frequently need to submit documents and images under strict file-size limits for applications and portals. Existing web utilities upload private documents to remote cloud servers, causing security risks, privacy leaks, and slow round-trip latencies.",
+      challenge: "Users frequently need to submit documents and images under strict file-size limits for government, university, and employment portals (e.g. UPSC, SSC) that enforce strict decimal caps (N × 1,000 bytes). Existing web utilities upload private documents to remote cloud servers, causing security risks, privacy leaks, and slow round-trip latencies.",
       architecture: [
         {
           title: "In-Browser WebAssembly Pipeline",
-          description: "Runs native C/Rust compression engines compiled to WebAssembly directly inside the client browser, guaranteeing zero file bytes ever leave the user's device."
+          description: "Runs native C/Rust codecs compiled to WebAssembly (@jsquash/webp, @jsquash/jpeg, @jsquash/png, @jsquash/avif) directly inside the browser, guaranteeing zero file bytes ever leave the client device."
         },
         {
-          title: "Custom Binary Search Quality Engine",
-          description: "Implements a logarithmic binary-search convergence algorithm that iteratively calculates optimal compression quality parameters to hit an exact user-specified target byte size."
+          title: "Two-Stage Precision Search & Decimal Margin",
+          description: "Implements a logarithmic binary-search convergence algorithm with a 98.8% safety ceiling calibrated for decimal portal caps. Includes an already-under-target bypass guard and adaptive resolution scaling fallback (0.85 to 0.15)."
         },
         {
           title: "Multi-Threaded Web Worker Pool",
           description: "Offloads intensive rasterization, PDF parsing, and image transformations to background worker threads, preserving a smooth 60fps UI experience even during bulk multi-file processing."
+        },
+        {
+          title: "AI Command Bar & Quality Loupe",
+          description: "Integrates a Gemini-powered natural language command bar for intent queueing (e.g., 'compress under 100KB as WebP') alongside an interactive 4× zoom magnifier loupe for side-by-side artifact inspection."
         }
       ],
       technicalHighlights: [
         "100% local-first architecture ensuring complete zero-knowledge data privacy",
+        "Interactive 4× magnification loupe for live side-by-side compression artifact comparison",
+        "Natural-language AI command bar with automated intent queueing via Google Gemini API",
+        "Precision target size stepper (+/- 10 KB, 50 KB) and decimal safety-ceiling byte meter",
         "Logarithmic convergence heuristic targeting exact byte tolerances within +/- 1%",
-        "Dynamic worker pool concurrency scaling automatically to available hardware threads",
-        "Support for modern raster formats (PNG, JPEG, WebP) and multi-page PDF documents"
+        "Home dropzone intelligent routing, remove-from-batch controls, and offline PWA pre-caching"
       ],
       metrics: [
         { label: "Data Leak Risk", value: "0% (Local)" },
@@ -368,6 +374,8 @@ export const projects: Project[] = [
       technicalHighlights: [
         "Gemini AI conversational search parsing unstructured buyer prompts into structured database queries",
         "Interactive side-by-side comparison matrix evaluating up to 3 luxury developments simultaneously",
+        "Lighthouse performance optimization eliminating Cumulative Layout Shift (0 CLS) and instant Hero LCP",
+        "Neighborhood telemetry displaying transit accessibility, school ratings, and investment trends",
         "Apple-inspired 3D card tilt physics and magnetic cursor interactions via Framer Motion",
         "Live Google Maps integration with theme-adaptive CSS filters for dark and light modes",
         "Secure broker administration dashboard for listing management and real-time lead tracking"
