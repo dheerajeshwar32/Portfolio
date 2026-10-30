@@ -95,7 +95,7 @@ export const projects = [
     tools: ["Python", "LLVM", "Compiler Design", "AST", "React", "Vite"],
     cover: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
     tag: "Compilers / Systems",
-    githubUrl: "https://github.com/dheerajeshwar32/Simmer"
+    githubUrl: "https://simmer-6v9k.onrender.com/"
   },
   {
     slug: "vaultfs",
@@ -105,7 +105,7 @@ export const projects = [
     tools: ["Python", "FastAPI", "WebSockets", "React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
     cover: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     tag: "Operating Systems / Storage",
-    githubUrl: "https://github.com/dheerajeshwar32/VaultFS"
+    githubUrl: "https://vaultfs.onrender.com/"
   }
 ];
 

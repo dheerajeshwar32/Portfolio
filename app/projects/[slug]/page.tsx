@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Code2 } from "lucide-react";
+import { ArrowLeft, Code2, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 
@@ -96,7 +96,15 @@ export default async function ProjectPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-foreground hover:opacity-70 transition-opacity font-medium"
                 >
-                  <Code2 size={20} /> View Source Code
+                  {project.githubUrl.includes("github.com") ? (
+                    <>
+                      <Code2 size={20} /> View Source Code
+                    </>
+                  ) : (
+                    <>
+                      <ExternalLink size={20} /> Visit Live Demo
+                    </>
+                  )}
                 </a>
               )}
             </div>
