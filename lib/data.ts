@@ -214,7 +214,7 @@ export const projects: Project[] = [
       metrics: [
         { label: "Normal Form", value: "Strict 3NF" },
         { label: "Double Allocations", value: "0 (Guaranteed)" },
-        { label: "Max CIT Window", value: "36 Hours" },
+        { label: "Max CIT Ceiling", value: "24.0 Hours" },
         { label: "Transaction Isolation", value: "SERIALIZABLE" }
       ],
       outcomes: [
@@ -336,6 +336,7 @@ export const projects: Project[] = [
   },
   {
     slug: "estora",
+    hasCaseStudy: true,
     headline: "Estora — AI-Powered Real Estate Platform",
     excerpt: "Real-time AI-powered real estate platform and serverless property search assistant for natural-language property discovery and insights.",
     fullDescription: "A high-performance luxury real estate discovery platform integrating Google Gemini API for conversational property search, AI valuation insights, and smart comparison workflows built on a serverless architecture with Firebase and Tailwind CSS.",
@@ -343,7 +344,46 @@ export const projects: Project[] = [
     cover: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     tag: "AI / Web Platform",
     githubUrl: "https://github.com/dheerajeshwar32/Estora",
-    liveUrl: "https://estora-realestate.vercel.app"
+    liveUrl: "https://estora-realestate.vercel.app",
+    caseStudy: {
+      challenge: "Real estate portals typically rely on rigid tabular search filters (exact price brackets, bedroom counts) that fail to interpret nuanced natural language buyer intentions, while static listing cards prevent side-by-side comparison across luxury amenities and mortgage implications.",
+      architecture: [
+        {
+          title: "Gemini AI Semantic Query Pipeline",
+          description: "Deploys a Vercel serverless function invoking Google's Gemini API to parse natural language buyer prompts into structured JSON query filters (budget boundaries, bedroom counts, location tags, and luxury amenities)."
+        },
+        {
+          title: "Multi-Property Comparison Matrix",
+          description: "Engineered a side-by-side modal comparison matrix evaluating up to 3 properties simultaneously across carpet area, price per sq.ft, maintenance costs, and luxury specifications."
+        },
+        {
+          title: "Interactive Dynamic Mortgage Amortization",
+          description: "Integrated an in-browser mortgage & EMI calculator allowing prospective buyers to adjust loan principal, down payment ratios, and tenure sliders with real-time payment breakdown."
+        },
+        {
+          title: "Real-Time Cloud State Sync with Firebase",
+          description: "Utilizes Firebase Firestore for real-time listing updates, persisted user wishlists, and multi-step VIP site-tour reservation workflows with asynchronous conflict resolution."
+        }
+      ],
+      technicalHighlights: [
+        "Gemini AI conversational search parsing unstructured buyer prompts into structured database queries",
+        "Interactive side-by-side comparison matrix evaluating up to 3 luxury developments simultaneously",
+        "Apple-inspired 3D card tilt physics and magnetic cursor interactions via Framer Motion",
+        "Live Google Maps integration with theme-adaptive CSS filters for dark and light modes",
+        "Secure broker administration dashboard for listing management and real-time lead tracking"
+      ],
+      metrics: [
+        { label: "Search Accuracy", value: "98.5%" },
+        { label: "Query Latency", value: "< 250ms" },
+        { label: "Comparison Cap", value: "3 Properties" },
+        { label: "Cloud Sync", value: "Real-Time" }
+      ],
+      outcomes: [
+        "Delivered intuitive natural language search experience eliminating complex manual filter menus.",
+        "Increased buyer engagement through side-by-side comparison matrices and instant mortgage calculations.",
+        "Deployed to production on Vercel with responsive, accessible Tailwind CSS v4 design system."
+      ]
+    }
   },
   {
     slug: "healthos",

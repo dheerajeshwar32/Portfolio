@@ -10,3 +10,4 @@ export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
