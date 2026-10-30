@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { inter } from "@/lib/fonts";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ndep-portfolio.vercel.app"),

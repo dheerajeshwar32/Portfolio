@@ -1,9 +1,9 @@
-import { Space_Grotesk } from "next/font/google";
+import { spaceGrotesk } from "@/lib/fonts";
 import { FadeIn, SectionLabel, SpotlightWrapper } from "@/components/ui/helpers";
 import { ArticleCard } from "@/components/ui/blog-post-card";
 import { featuredProjects, otherProjects } from "@/lib/data";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "700"] });
+
 
 export function ProjectsSection() {
   return (

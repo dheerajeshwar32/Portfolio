@@ -1,9 +1,9 @@
-import { Space_Grotesk } from "next/font/google";
+import { spaceGrotesk } from "@/lib/fonts";
 import { ExternalLink } from "lucide-react";
 import { FadeIn, SectionLabel, SpotlightWrapper } from "@/components/ui/helpers";
 import { certifications } from "@/lib/data";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "700"] });
+
 
 export function EducationSection() {
   return (
