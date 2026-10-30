@@ -10,6 +10,7 @@ import { X, ExternalLink } from "lucide-react";
 
 export interface ArticleCardProps {
   slug?: string;
+  hasCaseStudy?: boolean;
   headline: string;
   excerpt: string;
   fullDescription?: string;
@@ -17,14 +18,17 @@ export interface ArticleCardProps {
   tag?: string;
   tools?: string[];
   githubUrl?: string;
+  liveUrl?: string;
   clampLines?: number;
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({
   slug,
+  hasCaseStudy,
   cover,
   tag,
   githubUrl,
+  liveUrl,
   headline,
   excerpt,
   fullDescription,
@@ -32,7 +36,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasMeta = !!tag;
-  const hasFooter = !!githubUrl;
+  const hasFooter = !!(githubUrl || liveUrl);
 
   return (
     <>
@@ -75,23 +79,32 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
         </CardContent>
 
         {hasFooter && (
-          <CardFooter className="p-3 pt-0" onClick={(e) => e.stopPropagation()}>
+          <CardFooter className="p-3 pt-0 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
             {githubUrl && (
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex p-2 rounded-full border bg-card hover:bg-muted transition-colors"
-                aria-label={githubUrl.includes("github.com") ? "View on GitHub" : "Live Demo"}
+                aria-label="View on GitHub"
+                title="View on GitHub"
               >
-                {githubUrl.includes("github.com") ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5 text-muted-foreground group-hover:text-foreground transition-colors">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                    <path d="M9 18c-4.51 2-5-2-7-2" />
-                  </svg>
-                ) : (
-                  <ExternalLink className="size-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                )}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5 text-muted-foreground group-hover:text-foreground transition-colors">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </a>
+            )}
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex p-2 rounded-full border bg-card hover:bg-muted transition-colors"
+                aria-label="Live Website"
+                title="Live Website"
+              >
+                <ExternalLink className="size-5 text-muted-foreground group-hover:text-foreground transition-colors" />
               </a>
             )}
           </CardFooter>
@@ -128,26 +141,28 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
                   </div>
                 )}
                 
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
                   {tag && <Badge className="rounded-full bg-muted px-3 py-1">{tag}</Badge>}
+                  {liveUrl && (
+                    <a
+                      href={liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-foreground hover:opacity-85 flex items-center gap-1.5 px-3 py-1 rounded-full bg-foreground text-background transition-opacity"
+                    >
+                      <ExternalLink size={14} />
+                      Live Website
+                    </a>
+                  )}
                   {githubUrl && (
                     <a
                       href={githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-muted-foreground hover:underline flex items-center gap-1.5"
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground flex items-center gap-1.5 px-3 py-1 rounded-full border bg-card hover:bg-muted transition-colors"
                     >
-                      {githubUrl.includes("github.com") ? (
-                        <>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
-                          View on GitHub
-                        </>
-                      ) : (
-                        <>
-                          <ExternalLink size={16} />
-                          Live Demo
-                        </>
-                      )}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+                      View on GitHub
                     </a>
                   )}
                 </div>
@@ -171,7 +186,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
                   </div>
                 )}
                 
-                {slug && (
+                {hasCaseStudy && slug && (
                   <div className="mt-4 border-t border-border pt-6">
                     <Link href={`/projects/${slug}`} className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-6 py-2.5 text-sm font-medium transition-transform hover:scale-105">
                       Read Full Case Study

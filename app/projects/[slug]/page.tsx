@@ -10,16 +10,20 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return projects.map((p) => ({
-    slug: p.slug,
-  }));
+  return projects
+    .filter((p) => p.hasCaseStudy)
+    .map((p) => ({
+      slug: p.slug,
+    }));
 }
 
 export default async function ProjectPage({ params }: Props) {
   // Await the params object (Next.js 15 requires this)
   const resolvedParams = await params;
 
-  const project = projects.find((p) => p.slug === resolvedParams.slug);
+  const project = projects.find(
+    (p) => p.slug === resolvedParams.slug && p.hasCaseStudy
+  );
 
   if (!project) {
     notFound();
@@ -88,23 +92,25 @@ export default async function ProjectPage({ params }: Props) {
 
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">Links</h3>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-85 active:scale-95 transition-all shadow-md"
+                >
+                  <ExternalLink size={16} /> Visit Live Website
+                </a>
+              )}
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-foreground hover:opacity-70 transition-opacity font-medium"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border bg-card/60 text-sm font-medium text-foreground hover:bg-secondary active:scale-95 transition-all"
                 >
-                  {project.githubUrl.includes("github.com") ? (
-                    <>
-                      <Code2 size={20} /> View Source Code
-                    </>
-                  ) : (
-                    <>
-                      <ExternalLink size={20} /> Visit Live Demo
-                    </>
-                  )}
+                  <Code2 size={16} /> View on GitHub
                 </a>
               )}
             </div>

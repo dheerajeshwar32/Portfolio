@@ -9,33 +9,39 @@ export const NAV_TABS = [
 export const projects = [
   {
     slug: "perfectbyte",
+    hasCaseStudy: true,
     headline: "PerfectByte — Local-First File Compression",
     excerpt: "Privacy-first toolkit that compresses images and PDFs to an exact target byte size, entirely on-device.",
     fullDescription: "A privacy-first file utility that compresses images and PDFs down to an exact target byte size using a custom binary-search algorithm, with bulk folder compression powered by a Web Worker pool so the UI never blocks.",
     tools: ["React", "WebAssembly", "Tailwind CSS", "Web Workers", "Gemini API"],
     cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
     tag: "Web Architecture",
-    githubUrl: "https://perfectbyte.vercel.app/"
+    githubUrl: "https://github.com/dheerajeshwar32/PerfectByte",
+    liveUrl: "https://perfectbyte.vercel.app"
   },
   {
     slug: "carbonroute",
+    hasCaseStudy: true,
     headline: "CarbonRoute — Carbon-Aware LLM Router",
     excerpt: "Routes LLM inference requests based on live carbon intensity, latency, and cost SLA weights.",
     fullDescription: "An inference router that decides where to send an LLM request based on live carbon intensity, latency, and cost-priority weights. Targets a sub-200ms latency SLA while balancing cost and carbon-intensity.",
     tools: ["React", "Node.js", "Upstash Redis", "Tailwind CSS"],
     cover: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
     tag: "Systems / Edge Compute",
-    githubUrl: "https://github.com/dheerajeshwar32/CarbonRoute"
+    githubUrl: "https://github.com/dheerajeshwar32/CarbonRoute",
+    liveUrl: "https://carbon-route-alpha.vercel.app"
   },
   {
     slug: "kyc-job-skill-matching",
+    hasCaseStudy: true,
     headline: "KYC — In-Browser Job-Skill Matching",
     excerpt: "Privacy-first job-skill matching PWA with an AI career coach, built for InnoHack 2.0.",
     fullDescription: "Matches candidates to jobs using Transformers.js for in-browser semantic skill-matching via client-side cosine similarity. Validated at 100% top-match domain accuracy. Ships as an offline-capable PWA.",
     tools: ["Transformers.js", "Gemini API", "Firebase", "React"],
     cover: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=800&q=80",
     tag: "AI / Web Development",
-    githubUrl: "https://code-perfect-innohack.vercel.app/"
+    githubUrl: "https://github.com/dheerajeshwar32/CodePerfect",
+    liveUrl: "https://code-perfect-innohack.vercel.app"
   },
   {
     slug: "healthos",
@@ -45,7 +51,8 @@ export const projects = [
     tools: ["HTML5", "CSS3", "JavaScript", "Chart.js", "Web Speech API"],
     cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
     tag: "Frontend Application",
-    githubUrl: "https://dheerajeshwar32.github.io/healthOS/"
+    githubUrl: "https://github.com/dheerajeshwar32/healthOS",
+    liveUrl: "https://dheerajeshwar32.github.io/healthOS/"
   },
   {
     slug: "smart-city-traffic-analytics",
@@ -75,7 +82,8 @@ export const projects = [
     tools: ["Oracle SQL", "PL/SQL", "React", "TypeScript", "Tailwind CSS"],
     cover: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
     tag: "Database / Clinical Systems",
-    githubUrl: "https://dheerajeshwar32.github.io/VITAL/"
+    githubUrl: "https://github.com/dheerajeshwar32/VITAL",
+    liveUrl: "https://dheerajeshwar32.github.io/VITAL/"
   },
   {
     slug: "estora",
@@ -85,7 +93,8 @@ export const projects = [
     tools: ["React", "Firebase", "Gemini API", "Serverless Functions", "Tailwind CSS", "Vercel"],
     cover: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     tag: "AI / Web Platform",
-    githubUrl: "https://estora-realestate.vercel.app"
+    githubUrl: "https://github.com/dheerajeshwar32/Estora",
+    liveUrl: "https://estora-realestate.vercel.app"
   },
   {
     slug: "simmer",
@@ -95,7 +104,8 @@ export const projects = [
     tools: ["Python", "LLVM", "Compiler Design", "AST", "React", "Vite"],
     cover: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
     tag: "Compilers / Systems",
-    githubUrl: "https://simmer-6v9k.onrender.com/"
+    githubUrl: "https://github.com/dheerajeshwar32/Simmer",
+    liveUrl: "https://simmer-6v9k.onrender.com/"
   },
   {
     slug: "vaultfs",
@@ -105,7 +115,8 @@ export const projects = [
     tools: ["Python", "FastAPI", "WebSockets", "React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
     cover: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     tag: "Operating Systems / Storage",
-    githubUrl: "https://vaultfs.onrender.com/"
+    githubUrl: "https://github.com/dheerajeshwar32/VaultFS",
+    liveUrl: "https://vaultfs.onrender.com/"
   }
 ];
 
