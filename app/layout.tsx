@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ndep-portfolio.vercel.app"),
   title: "NDEP — Portfolio",
   description:
     "Software Engineer | B.Tech CSE (Core) @ VIT Vellore | Web Infrastructure, Edge Computing, Algorithms",

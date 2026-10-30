@@ -66,6 +66,46 @@ export const projects = [
     cover: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
     tag: "Algorithms",
     githubUrl: "https://github.com/dheerajeshwar32"
+  },
+  {
+    slug: "vital",
+    headline: "VITAL — National Organ Transplant & Allocation Engine",
+    excerpt: "Organ/kidney transplant allocation and matching database system featuring automated compatibility scoring, triggers, and clinical telemetry.",
+    fullDescription: "An enterprise clinical database engine engineered with Oracle 19c PL/SQL for kidney and organ transplant allocation. Implements automated compatibility scoring, triggers, stored procedures, cursors, and strict ACID relational integrity paired with an interactive frontend interface.",
+    tools: ["Oracle SQL", "PL/SQL", "React", "TypeScript", "Tailwind CSS"],
+    cover: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    tag: "Database / Clinical Systems",
+    githubUrl: "https://dheerajeshwar32.github.io/VITAL/"
+  },
+  {
+    slug: "estora",
+    headline: "Estora — AI-Powered Real Estate Platform",
+    excerpt: "Real-time AI-powered real estate platform and serverless property search assistant for natural-language property discovery and insights.",
+    fullDescription: "A high-performance luxury real estate discovery platform integrating Google Gemini API for conversational property search, AI valuation insights, and smart comparison workflows built on a serverless architecture with Firebase and Tailwind CSS.",
+    tools: ["React", "Firebase", "Gemini API", "Serverless Functions", "Tailwind CSS", "Vercel"],
+    cover: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    tag: "AI / Web Platform",
+    githubUrl: "https://estora-realestate.vercel.app"
+  },
+  {
+    slug: "simmer",
+    headline: "Simmer — Custom LLVM Optimizing Compiler",
+    excerpt: "Custom optimizing programming language compiler that translates source code into ASTs, LLVM IR, native machine object code (.o), and JIT execution outputs.",
+    fullDescription: "A high-performance domain-specific language compiler featuring a hand-rolled recursive-descent frontend and an industrial LLVM backend via llvmlite. Translates high-level scripts into ASTs, optimized LLVM IR, native machine object code, and JIT execution, paired with an interactive web playground.",
+    tools: ["Python", "LLVM", "Compiler Design", "AST", "React", "Vite"],
+    cover: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    tag: "Compilers / Systems",
+    githubUrl: "https://github.com/dheerajeshwar32/Simmer"
+  },
+  {
+    slug: "vaultfs",
+    headline: "VaultFS — Virtual File System & Visual Workbench",
+    excerpt: "Persistent virtual file system stored in a binary disk-image file with real-time block matrix visualization and multi-strategy allocation.",
+    fullDescription: "A kernel-grade virtual file system stored in a persistent binary disk-image file. Simulates Contiguous, Linked, and Indexed allocation, external vs internal fragmentation, seek distance dynamics, live disk defragmentation, fault injection, and automated fsck repairs with an interactive browser terminal.",
+    tools: ["Python", "FastAPI", "WebSockets", "React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+    cover: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    tag: "Operating Systems / Storage",
+    githubUrl: "https://github.com/dheerajeshwar32/VaultFS"
   }
 ];
 

@@ -17,7 +17,7 @@ export function SkillsSection() {
                 {category}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {items.map((skill, si) => (
+                {items.map((skill) => (
                   <span
                     key={skill}
                     className="px-3 py-1 rounded-full text-sm border border-border bg-card/60 text-foreground/80 hover:border-foreground/40 hover:text-foreground transition-colors cursor-default"

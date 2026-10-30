@@ -129,7 +129,7 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches || shouldReduceMotion) return;
-    setIsVisible(true);
+    const timer = setTimeout(() => setIsVisible(true), 0);
 
     const updateMousePosition = (e: MouseEvent) => {
       cursorX.set(e.clientX - 12);
@@ -141,7 +141,10 @@ export function CustomCursor() {
     };
 
     window.addEventListener("mousemove", updateMousePosition);
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
   }, [cursorX, cursorY, shouldReduceMotion]);
 
   if (!isVisible) return null;

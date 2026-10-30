@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
@@ -30,7 +29,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   excerpt,
   fullDescription,
   tools,
-  clampLines,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasMeta = !!tag;
